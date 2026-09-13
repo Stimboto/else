@@ -2,10 +2,20 @@
   <img src="https://github.com/user-attachments/assets/34f216a3-3bae-494e-bd28-25e505dee7a6" alt="ELSE OS Banner" width="100%">
 </p>
 
-<h1 align="center">ELSE</h1>
+# ELSE
+[svg](https://github.com/Stimboto/else/blob/main/README.md#else)
+
+**A from-scratch x86_64 research operating system written in Rust.**
 
 <p align="center">
-  <strong>A from-scratch x86_64 research operating system written in Rust.</strong>
+
+![PLATFORM](https://img.shields.io/badge/PLATFORM-ANDROID-3DBB00?style=flat-square)
+![KOTLIN](https://img.shields.io/badge/KOTLIN-100%25-8B00A8?style=flat-square)
+![AI](https://img.shields.io/badge/AI-POWERED-008CCF?style=flat-square)
+![ARCHITECTURE](https://img.shields.io/badge/ARCHITECTURE-MVVM-E04444?style=flat-square)
+![UI](https://img.shields.io/badge/UI-MATERIAL%203-EF6C28?style=flat-square)
+![STATUS](https://img.shields.io/badge/STATUS-ACTIVE-3DBB00?style=flat-square)
+
 </p>
 
 ---
