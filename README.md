@@ -1,6 +1,14 @@
-# ELSE
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/34f216a3-3bae-494e-bd28-25e505dee7a6" alt="ELSE OS Banner" width="100%">
+</p>
 
-ELSE is a from-scratch x86_64 research operating system written in Rust.
+<h1 align="center">ELSE</h1>
+
+<p align="center">
+  <strong>A from-scratch x86_64 research operating system written in Rust.</strong>
+</p>
+
+---
 
 ## Architectural Philosophy
 
@@ -17,7 +25,7 @@ ELSE is a from-scratch x86_64 research operating system written in Rust.
 
 ## Current Status
 
-**STAGE 1 — OS CORE / RESEARCH PLATFORM**: Phases 0–12 COMPLETE
+**STAGE 1 — OS CORE / RESEARCH PLATFORM**: Phases 0–12 COMPLETE  
 **STAGE 2 — DESKTOP / USER EXPERIENCE**: NOT STARTED YET
 
 > [!NOTE]
@@ -25,15 +33,17 @@ ELSE is a from-scratch x86_64 research operating system written in Rust.
 
 ## Verified Features (Stage 1)
 
-**Networking (Phase 11):**
-Verified Ethernet + ARP + IPv4 + UDP stack.
-Host → ELSE → Host UDP communication is verified via QEMU SLIRP.
+**Networking (Phase 11):**  
+Verified Ethernet + ARP + IPv4 + UDP stack.  
+Host → ELSE → Host UDP communication is verified via QEMU SLIRP.  
 Current networking path: `PCI → RTL8139 → DMA → Ethernet → ARP → IPv4 → UDP → network_service → network_test → QEMU SLIRP → Host`
 
 ## Build and Development
 
 ### 1. Docker (Reproducible Build Workflow)
+
 To guarantee a reproducible build environment with all necessary dependencies:
+
 ```bash
 ./scripts/docker-build.sh
 ```
