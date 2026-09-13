@@ -2,7 +2,7 @@
   <img src="https://github.com/user-attachments/assets/34f216a3-3bae-494e-bd28-25e505dee7a6" alt="ELSE OS Banner" width="100%">
 </p>
 
-# ELSE
+<h1 align="center">ELSE</h1>
 
 **A from-scratch x86_64 research operating system written in Rust.**
 
