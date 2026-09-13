@@ -11,6 +11,7 @@
   ![PLATFORM](https://img.shields.io/badge/Platform-Bare%20Metal-orange?style=flat-square)
   ![BOOTLOADER](https://img.shields.io/badge/Bootloader-Limine-3DBB00?style=flat-square)
   ![STATUS](https://img.shields.io/badge/Status-Active-success?style=flat-square)
+  ![BUILD](https://github.com/Stimboto/else/actions/workflows/build.yml/badge.svg)
 </div>
 
 ---
