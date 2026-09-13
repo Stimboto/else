@@ -4,8 +4,9 @@
 
 <h1 align="center">ELSE</h1>
 
-**A from-scratch x86_64 research operating system written in Rust.**
-
+<p align="center">
+  <strong>A from-scratch x86_64 research operating system written in Rust.</strong>
+</p>
 <p align="center">
 
 ![PLATFORM](https://img.shields.io/badge/PLATFORM-ANDROID-3DBB00?style=flat-square)
