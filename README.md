@@ -3,7 +3,6 @@
 </p>
 
 # ELSE
-[svg](https://github.com/Stimboto/else/blob/main/README.md#else)
 
 **A from-scratch x86_64 research operating system written in Rust.**
 
