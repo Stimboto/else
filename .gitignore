@@ -1,0 +1,20 @@
+/target/
+**/*.rs.bk
+*.swp
+*.iso
+.DS_Store
+
+# Logs and debug dumps
+*.log
+*.dump
+objdump*.txt
+
+# Build artifacts
+*.img
+*.tar.gz
+/iso_root/
+/limine/
+
+# Ignore IDE artifacts
+.vscode/
+.idea/

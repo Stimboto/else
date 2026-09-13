@@ -1,0 +1,22 @@
+[package]
+name = "kernel"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+limine = "0.5.0"
+uart_16550 = "0.3.0"
+x86_64 = { version = "0.15.5", default-features = false, features = ["instructions"] }
+log = "0.4"
+pic8259 = { version = "0.11.0", default-features = false } # Legacy 8259 PIC for Phase 2 hardware timer mapping
+spin = "0.9.8"     # Required for no_std Mutex and Lazy initialization
+linked_list_allocator = "0.10.5" # Phase 3 kernel heap allocator
+bitflags = "2.4.2"
+
+[features]
+default = []
+test_exceptions = [] # Enable this feature to trigger deliberate exception tests during boot
+test_memory = []     # Enable this feature to trigger deliberate memory diagnostics during boot
+test_page_fault = [] # Enable this feature to trigger deliberate exception tests during boot
+test_scheduler = []  # Enable this feature to test the preemptive scheduler and user mode isolation
+test_ipc = []        # Enable this feature to test the Phase 5 IPC system

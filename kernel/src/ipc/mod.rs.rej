@@ -1,0 +1,13 @@
+--- kernel/src/ipc/mod.rs
++++ kernel/src/ipc/mod.rs
+@@ -16,8 +16,8 @@
+ #[derive(Debug)]
+ pub enum EndpointState {
+     Idle,
+-    SendersWaiting(alloc::collections::VecDeque<(crate::task::scheduler::Thread, crate::ipc::Message)>),
+-    ReceiversWaiting(alloc::collections::VecDeque<(crate::task::scheduler::Thread, crate::ipc::MessagePtr)>),
++    SendersWaiting(alloc::collections::VecDeque<(alloc::boxed::Box<crate::task::scheduler::Thread>, crate::ipc::Message)>),
++    ReceiversWaiting(alloc::collections::VecDeque<(alloc::boxed::Box<crate::task::scheduler::Thread>, crate::ipc::MessagePtr)>),
+ }
+ 
+ #[derive(Debug)]

@@ -1,0 +1,49 @@
+[package]
+name = "userspace"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "init"
+path = "src/bin/init.rs"
+
+[[bin]]
+name = "service_a"
+path = "src/bin/service_a.rs"
+
+[[bin]]
+name = "fault_service"
+path = "src/bin/fault_service.rs"
+
+[[bin]]
+name = "keyboard_service"
+path = "src/bin/keyboard_service.rs"
+
+[[bin]]
+name = "terminal_service"
+path = "src/bin/terminal_service.rs"
+
+[[bin]]
+name = "ata_service"
+path = "src/bin/ata_service.rs"
+
+[[bin]]
+name = "fat16_service"
+path = "src/bin/fat16_service.rs"
+
+[[bin]]
+name = "storage_test"
+path = "src/bin/storage_test.rs"
+[dependencies]
+
+[[bin]]
+name = "rtl8139_service"
+path = "src/bin/rtl8139_service.rs"
+
+[[bin]]
+name = "network_service"
+path = "src/bin/network_service.rs"
+
+[[bin]]
+name = "network_test"
+path = "src/bin/network_test.rs"
