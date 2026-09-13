@@ -2,21 +2,16 @@
   <img src="https://github.com/user-attachments/assets/34f216a3-3bae-494e-bd28-25e505dee7a6" alt="ELSE OS Banner" width="100%">
 </p>
 
-<h1 align="center">ELSE</h1>
+<div align="center">
+  <h1>ELSE</h1>
+  <p><strong>A from-scratch x86_64 research operating system written in Rust.</strong></p>
 
-<p align="center">
-  <strong>A from-scratch x86_64 research operating system written in Rust.</strong>
-</p>
-<p align="center">
-
-![PLATFORM](https://img.shields.io/badge/PLATFORM-ANDROID-3DBB00?style=flat-square)
-![KOTLIN](https://img.shields.io/badge/KOTLIN-100%25-8B00A8?style=flat-square)
-![AI](https://img.shields.io/badge/AI-POWERED-008CCF?style=flat-square)
-![ARCHITECTURE](https://img.shields.io/badge/ARCHITECTURE-MVVM-E04444?style=flat-square)
-![UI](https://img.shields.io/badge/UI-MATERIAL%203-EF6C28?style=flat-square)
-![STATUS](https://img.shields.io/badge/STATUS-ACTIVE-3DBB00?style=flat-square)
-
-</p>
+  ![RUST](https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white)
+  ![ARCHITECTURE](https://img.shields.io/badge/Architecture-x86__64-blue?style=flat-square)
+  ![PLATFORM](https://img.shields.io/badge/Platform-Bare%20Metal-orange?style=flat-square)
+  ![BOOTLOADER](https://img.shields.io/badge/Bootloader-Limine-3DBB00?style=flat-square)
+  ![STATUS](https://img.shields.io/badge/Status-Active-success?style=flat-square)
+</div>
 
 ---
 
