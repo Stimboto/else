@@ -2,7 +2,7 @@
 set -e
 
 echo "=> Building initramfs..."
-./scripts/build_initramfs.sh
+bash ./scripts/build_initramfs.sh
 
 echo "=> Building ELSE kernel..."
 cd kernel
@@ -49,11 +49,16 @@ if [ ! -f disk.img ]; then
 fi
 
 if [ -z "$NO_QEMU" ]; then
+    echo "=> Starting QEMU with live serial console output..."
+    QEMU_DISP="-display none"
+    if [ -n "$ENABLE_GUI" ]; then
+        QEMU_DISP=""
+    fi
     qemu-system-x86_64 -cdrom else.iso \
         -drive file=disk.img,format=raw,index=0,media=disk \
         -netdev user,id=net0,hostfwd=udp::8080-:8080 \
         -device rtl8139,netdev=net0 \
-        -serial file:serial.log -no-reboot
+        -serial stdio $QEMU_DISP -no-reboot | tee serial.log
 else
     echo "=> Skipping QEMU execution (NO_QEMU is set)."
 fi

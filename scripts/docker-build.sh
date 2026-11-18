@@ -7,7 +7,7 @@ docker build -t else-os-dev .
 
 # Run the build process inside the Docker container
 echo "=> Building ELSE inside Docker..."
-docker run --rm -v "$(pwd)":/workspace -e NO_QEMU=1 else-os-dev bash -c "./scripts/run.sh"
+docker run --rm -v "$(pwd)":/workspace -e NO_QEMU=1 else-os-dev bash -c "bash scripts/run.sh"
 
 echo "=> Docker build complete!"
 echo "Note: The Docker container builds the kernel, userspace, and else.iso."

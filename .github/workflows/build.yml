@@ -27,5 +27,6 @@ jobs:
 
       - name: Run build process
         run: |
+          chmod +x scripts/*.sh
           export NO_QEMU=1
           bash scripts/run.sh

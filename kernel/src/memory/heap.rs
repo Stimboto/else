@@ -5,7 +5,7 @@ use x86_64::{structures::paging::{Page, PageTableFlags, Size4KiB, FrameAllocator
 static ALLOCATOR: LockedHeap = LockedHeap::empty();
 
 pub const HEAP_START: usize = 0xffff_9000_0000_0000;
-pub const HEAP_SIZE: usize = 100 * 1024; // 100 KiB
+pub const HEAP_SIZE: usize = 4 * 1024 * 1024; // 4 MiB
 
 pub fn init() {
     let page_range = {

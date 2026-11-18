@@ -26,7 +26,7 @@ pub struct Thread {
 }
 
 impl Thread {
-    const STACK_SIZE: usize = 1024 * 8; // 8 KiB
+    const STACK_SIZE: usize = 1024 * 32; // 32 KiB
 
     pub fn new_kernel_thread(entry_point: extern "C" fn()) -> Self {
         static NEXT_ID: AtomicU64 = AtomicU64::new(1);

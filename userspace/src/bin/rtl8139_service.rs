@@ -126,12 +126,10 @@ pub extern "C" fn main() {
         mac[i] = sys_port_in(21, io_base + REG_MAC0 + i as u16, 1) as u8;
     }
     
-    unsafe {
-        let stack_top = core::ptr::addr_of_mut!(TX_THREAD_STACK) as usize + 8192;
-        let tid = sys_thread_spawn(tx_thread, stack_top);
-        sys_log("[RTL8139] Spawned TX thread ID:");
-        userspace::sys_log_num(tid as usize);
-    }
+    let stack_top = core::ptr::addr_of_mut!(TX_THREAD_STACK) as usize + 8192;
+    let tid = sys_thread_spawn(tx_thread, stack_top);
+    sys_log("[RTL8139] Spawned TX thread ID:");
+    userspace::sys_log_num(tid as usize);
     
     let mac_msg = Message {
         rdi: MSG_NET_RX,

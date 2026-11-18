@@ -143,16 +143,14 @@ timer_interrupt_stub:
     push r14
     push r15
     
-    mov rdi, rsp
+    push rsp
+    mov rdi, [rsp]
     call timer_tick_handler
+    pop r8
     
     // Result is in RAX (tag) and RDX (rsp)
     mov rbx, rax
     mov rcx, rdx
-    
-    // Send EOI to PIC (IRQ 0 is on Master PIC)
-    mov al, 0x20
-    out 0x20, al
     
     cmp rbx, 0
     je .L_resume_cooperative
@@ -184,6 +182,7 @@ timer_interrupt_stub:
 .L_resume_cooperative:
     // Switch to a cooperative stack frame
     // Cooperative context is just the callee-saved registers pushed by switch_context.
+    mov rax, r8
     mov rsp, rcx
     pop r15
     pop r14

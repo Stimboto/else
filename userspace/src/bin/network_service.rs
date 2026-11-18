@@ -121,12 +121,25 @@ fn handle_arp(packet: &[u8]) {
     }
 }
 
-fn handle_ipv4(packet: &[u8]) {
+fn handle_ipv4(packet: &[u8], src_mac: &[u8]) {
     if packet.len() < 20 { return; }
     let ihl = (packet[0] & 0x0F) as usize * 4;
     let protocol = packet[9];
     let mut dest_ip = [0u8; 4];
     dest_ip.copy_from_slice(&packet[16..20]);
+    
+    // Opportunistically learn/update gateway MAC from any incoming IPv4 frame
+    unsafe {
+        let mut sender_ip = [0u8; 4];
+        sender_ip.copy_from_slice(&packet[12..16]);
+        if !GATEWAY_MAC_RESOLVED || sender_ip == GATEWAY_IP {
+            GATEWAY_MAC = [src_mac[0], src_mac[1], src_mac[2], src_mac[3], src_mac[4], src_mac[5]];
+            if !GATEWAY_MAC_RESOLVED {
+                GATEWAY_MAC_RESOLVED = true;
+                sys_log("[Net] Learned Gateway MAC from incoming IPv4 packet");
+            }
+        }
+    }
     
     if dest_ip != OUR_IP && dest_ip != [255, 255, 255, 255] {
         return;
@@ -172,7 +185,8 @@ fn handle_udp(packet: &[u8], src_ip: &[u8]) {
 fn send_udp(dest_ip: u32, dest_port: u16, src_port: u16, payload_len: usize) {
     unsafe {
         if !GATEWAY_MAC_RESOLVED {
-            sys_log("[Net] Cannot send UDP, gateway MAC unresolved! Dropping packet.");
+            sys_log("[Net] Cannot send UDP, gateway MAC unresolved! Sending ARP request...");
+            send_arp_request();
             return;
         }
         
@@ -261,7 +275,7 @@ pub extern "C" fn main() {
                             let eth_type = ((packet[12] as u16) << 8) | (packet[13] as u16);
                             match eth_type {
                                 0x0806 => handle_arp(&packet[14..]),
-                                0x0800 => handle_ipv4(&packet[14..]),
+                                0x0800 => handle_ipv4(&packet[14..], &packet[6..12]),
                                 _ => {}
                             }
                         }
