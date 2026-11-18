@@ -49,10 +49,15 @@ if [ ! -f disk.img ]; then
 fi
 
 if [ -z "$NO_QEMU" ]; then
-    echo "=> Starting QEMU with live serial console output..."
-    QEMU_DISP="-display none"
-    if [ -n "$ENABLE_GUI" ]; then
-        QEMU_DISP=""
+    echo "=> Starting QEMU..."
+    QEMU_DISP=""
+    if [ -n "$NO_GUI" ] || [ -n "$HEADLESS" ]; then
+        QEMU_DISP="-display none"
+    else
+        # If running inside WSL with WSLg, ensure DISPLAY is populated
+        if [ -z "$DISPLAY" ] && [ -e /tmp/.X11-unix/X0 ]; then
+            export DISPLAY=:0
+        fi
     fi
     qemu-system-x86_64 -cdrom else.iso \
         -drive file=disk.img,format=raw,index=0,media=disk \
